@@ -282,7 +282,8 @@ A: 可以，但请确保服务器允许使用此类模组，并遵守服务器�
 
 ## 📚 更多资源
 
-- **问题反馈**: 如遇到问题，请在 GitHub Issues 中反馈
+- **GitHub 仓库**: [https://github.com/xiaofanforfabric/PlayerBot](https://github.com/xiaofanforfabric/PlayerBot)
+- **问题反馈**: 如遇到问题，请在 [GitHub Issues](https://github.com/xiaofanforfabric/PlayerBot/issues) 中反馈
 - **功能建议**: 欢迎提出新功能建议
 - **社区讨论**: 加入社区讨论，分享使用经验
 
