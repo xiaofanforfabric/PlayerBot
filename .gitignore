@@ -46,6 +46,10 @@ bin/
 java17(1.20.1-1.20.6)/mods/*.jar
 !java17(1.20.1-1.20.6)/mods/.gitkeep
 
+# 禁止上传的项目
+autosaveforForge示例项目/
+PlayerBot-Macro-GUI-server/
+
 # 构建产物
 **/build/
 **/out/
