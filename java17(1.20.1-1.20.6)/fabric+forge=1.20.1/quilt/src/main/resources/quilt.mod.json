@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "mixin": [
+    "playerbot.mixins.json",
+    "playerbot-common.mixins.json"
+  ],
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "playerbot",
+    "version": "${version}",
+    "metadata": {
+      "name": "PlayerBot",
+      "description": "PlayerBot - Automated Macro Functionality Mod",
+      "contributors": {
+        "xiaofan": "Owner"
+      },
+      "contact": {
+        "sources": "https://github.com/architectury/architectury-templates"
+      },
+      "icon": "assets/playerbot/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": [
+        "com.xiaofan.quilt.ExampleModQuilt"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": ">=1.20.1"
+      },
+      {
+        "id": "architectury",
+        "version": ">=9.1.12"
+      },
+      {
+        "id": "baritone",
+        "version": "*"
+      }
+    ]
+  },
+  "minecraft": {
+    "environment": "*"
+  }
+}

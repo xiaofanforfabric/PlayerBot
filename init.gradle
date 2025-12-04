@@ -1,0 +1,40 @@
+// Gradle 初始化脚本 - 配置中国镜像源
+// 此文件会自动应用到所有 Gradle 构建
+
+allprojects {
+    repositories {
+        // 阿里云 Maven 镜像（主要）
+        maven {
+            name "AliyunMaven"
+            url "https://maven.aliyun.com/repository/public"
+        }
+        
+        // 阿里云 Maven Central 镜像
+        maven {
+            name "AliyunMavenCentral"
+            url "https://maven.aliyun.com/repository/central"
+        }
+        
+        // 腾讯云 Maven 镜像（备用）
+        maven {
+            name "TencentMaven"
+            url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/"
+        }
+        
+        // 华为云 Maven 镜像（备用）
+        maven {
+            name "HuaweiMaven"
+            url "https://repo.huaweicloud.com/repository/maven/"
+        }
+        
+        // 原始 Maven Central（最后备用）
+        mavenCentral()
+        
+        // Google Maven（Android 相关）
+        maven {
+            name "GoogleMaven"
+            url "https://maven.google.com"
+        }
+    }
+}
+

@@ -1,0 +1,42 @@
+plugins {
+    id "java"
+    id "maven-publish"
+}
+
+// 不依赖 Minecraft，只包含纯逻辑代码
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    options.release = 17
+}
+
+version = "1.0.0"
+group = "com.xiaofan"
+
+repositories {
+    maven {
+        name "AliyunMaven"
+        url "https://maven.aliyun.com/repository/public"
+    }
+}
+
+dependencies {
+    // 只依赖日志库（如果需要）
+    // 不依赖 Minecraft 或 Architectury
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = "playerbot-allcommon"
+            from components.java
+        }
+    }
+}
+

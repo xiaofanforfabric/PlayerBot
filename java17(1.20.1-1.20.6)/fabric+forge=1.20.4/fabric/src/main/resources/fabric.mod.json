@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "playerbot",
+  "version": "${version}",
+  "name": "PlayerBot",
+  "description": "PlayerBot - Automated Macro Functionality Mod",
+  "authors": [
+    "xiaofan"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "Insert License Here",
+  "icon": "assets/playerbot/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.xiaofan.fabric.ExampleModFabric"
+    ]
+  },
+  "mixins": [
+    "playerbot.mixins.json",
+    "playerbot-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.4",
+    "architectury": ">=9.1.12",
+    "baritone": "*"
+  },
+  "accessWidener": "playerbot.accesswidener"
+}

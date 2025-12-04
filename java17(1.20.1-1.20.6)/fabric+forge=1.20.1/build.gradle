@@ -1,0 +1,79 @@
+plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "1.3-SNAPSHOT" apply false
+}
+
+architectury {
+    minecraft = rootProject.minecraft_version
+}
+
+subprojects {
+    apply plugin: "dev.architectury.loom"
+
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        // The following line declares the mojmap mappings, you may use other mappings as well
+        mappings loom.officialMojangMappings()
+        // The following line declares the yarn mappings you may select this one as well.
+        // mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
+    }
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
+
+    base {
+        archivesName = rootProject.archives_base_name
+    }
+
+    version = rootProject.mod_version
+    group = rootProject.maven_group
+
+    repositories {
+        // 阿里云 Maven 镜像（主要）
+        maven {
+            name "AliyunMaven"
+            url "https://maven.aliyun.com/repository/public"
+        }
+        // 腾讯云 Maven 镜像（备用）
+        maven {
+            name "TencentMaven"
+            url "https://mirrors.cloud.tencent.com/nexus/repository/maven-public/"
+        }
+        // 华为云 Maven 镜像（备用）
+        maven {
+            name "HuaweiMaven"
+            url "https://repo.huaweicloud.com/repository/maven/"
+        }
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
+    
+    // 确保所有资源处理任务使用 UTF-8 编码
+    tasks.withType(ProcessResources) {
+        filteringCharset = "UTF-8"
+    }
+    
+    // 确保所有复制任务使用 UTF-8 编码
+    tasks.withType(Copy) {
+        filteringCharset = "UTF-8"
+    }
+
+    java {
+        withSourcesJar()
+    }
+}
